@@ -9,7 +9,7 @@ const EMAILJS_PUBLIC_KEY = 'VDQbXX9w_AvFShisS';
 // Recipients for contact form submissions
 const RECIPIENTS = [
   'anouar-ali.ammara@mail.com',
-  'nl.tahchi@gmail.com',
+  'aaaconsulting-dz@outlook.com',
 ];
 
 interface ContactFormData {
