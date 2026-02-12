@@ -3,9 +3,9 @@ import { ChevronDown } from 'lucide-react';
 
 const stats = [
   { value: '25', suffix: '', label: 'Ans d\'expérience' },
-  { value: '11', suffix: '+', label: 'Projets réussis' },
+  { value: '05', suffix: '+', label: 'Projets réussis' },
   { value: '10', suffix: '+', label: 'Experts Partenaires' },
-  { value: '98', suffix: '%', label: 'Satisfaction' },
+  { value: '100', suffix: '%', label: 'Local' },
 ];
 
 const StatsSection = () => {

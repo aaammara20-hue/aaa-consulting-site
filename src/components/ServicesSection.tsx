@@ -51,7 +51,7 @@ const services = [
     description: 'Transformer les idées stratégiques en résultats concrets.',
     bullets: [
       'Identification des leviers d\'innovation',
-      'Prototypage et déploiement maitrisé et sécurisé'
+      'Ideation & déploiement maitrisé et sécurisé'
     ]
   },
   {
@@ -150,7 +150,9 @@ const ServicesSection = () => {
             Nos Services
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Accompagnement à 360°
+            
+            <span className="text-gradient-blue">Accompagnement </span>
+             à 360°
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Structurer et sécuriser la performance durable de votre organisation.

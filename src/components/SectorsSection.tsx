@@ -35,8 +35,8 @@ const interventions = [
           ],
     results: [
       'Décisions lisibles et exécutées',
-      'Alignement durable entre stratégie et performance',
-      'Pilotage simple, structuré et maîtrisé',
+      'Alignement & Performance durable',
+      'Pilotage structuré et maîtrisé',
     ],
   },
   {
@@ -46,8 +46,8 @@ const interventions = [
     objective: 'Transformer l’ambition stratégique en trajectoire opérationnelle maîtrisée, avec des priorités claires et un pilotage sécurisé.',
     whatWeDo: [
       'Diagnostic des leviers de transformation',
-      'Feuille de route pragmatique et séquencée',
-      'Workshops & Accompagnement du management',
+      'Feuille de route séquencée',
+      'Workshops d’accompagnement',
     ],
     results: [
       'Transformation structurée et pilotable',
@@ -76,6 +76,18 @@ const InterventionCard = ({ intervention, index }: { intervention: typeof interv
       <h3 className="text-lg md:text-2xl font-bold text-foreground text-center mb-2">
         {intervention.title}
       </h3>
+
+      {/* Results */}
+      <div className="flex items-center justify-center gap-2 mb-5">
+        <ul className="space-y-2">
+          {intervention.results.map((result, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-foreground">
+              <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" strokeWidth={2} />
+              <span>{result}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       {/* When to call */}
       <div className="mb-5">
@@ -106,18 +118,7 @@ const InterventionCard = ({ intervention, index }: { intervention: typeof interv
         </ul>
       </div>
 
-      {/* Results */}
-      <div className="mb-6">
-        <h4 className="text-sm font-semibold text-primary mb-2">Résultat pour le dirigeant</h4>
-        <ul className="space-y-2">
-          {intervention.results.map((result, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-              <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" strokeWidth={2} />
-              <span>{result}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      
 
       {/* CTA Button */}
       <div className="mt-auto pt-4">
@@ -140,18 +141,20 @@ const SectorsSection = () => {
 
         {/* Section Header */}
         <div className="text-left md:text-center mb-10"> 
-          <h4 className="text-muted-foreground text-lg max-w-4xl mx-auto mt-3"> 
-            Des Offres structurées pour faire face à la complexité. 
-            </h4>
-             </div>
+          <h3 className="text-lg md:text-2xl font-bold text-foreground text-center mb-2">
+        Des Offres structurées pour faire face à la complexité.
+      </h3>
+          </div>
       </div>
         
         {/* Interventions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-6">
-          {interventions.map((intervention, index) => (
-            <InterventionCard key={intervention.title} intervention={intervention} index={index} />
-          ))}
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 justify-center"> 
+        {interventions.map((intervention, index) => ( 
+        <div className="max-w-md mx-auto"> 
+        <InterventionCard key={intervention.title} intervention={intervention} index={index} /> 
+      </div> 
+    ))} 
+    </div>
         
     </section>
   );

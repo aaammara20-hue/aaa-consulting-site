@@ -2,19 +2,19 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "AAA Consulting nous a accompagnés dans une transformation stratégique majeure. Leur rigueur méthodologique et leur pragmatisme ont fait la différence.",
-    author: 'Client A',
-    role: 'Directrice Générale',
+    quote: "Nous les accompagnons pour transformer la complexité en décisions claires, pilotables et durables.",
+    author: 'Transparence & Traçabilité ',
+    role: 'Clarté · Crédibilité',
   },
   {
-    quote: "Une équipe de haut niveau qui a su comprendre les enjeux spécifiques de notre secteur. Les résultats sont au rendez-vous.",
-    author: 'Client B',
-    role: 'Directeur des Opérations',
+    quote: "Nous structurons l’exécution collective pour qu’elle devienne fluide, mesurable et créatrice de valeur.",
+    author: 'Pragmatique & Durable',
+    role: 'Simplicité · Impact',
   },
   {
-    quote: "Partenaires de confiance depuis 3 ans, ils nous aident à naviguer la complexité avec une vision claire et des solutions concrètes.",
-    author: 'Client C',
-    role: 'CEO',
+    quote: "Nous faisons de l’innovation et de la durabilité des leviers stratégiques, pragmatiques et maîtrisés.",
+    author: 'Performance Responsable',
+    role: 'Conformité · Responsabilité',
   },
 ];
 
@@ -28,13 +28,14 @@ const TestimonialsSection = () => {
         {/* Section Header */}
         <div className="text-left md:text-center mb-16">
           <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
-            Témoignages
+            Ce qui nous distingue
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            La confiance de nos clients
-          </h2>
+             Notre 
+             <span className="text-gradient-blue"> Engagement </span>
+                       </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Des dirigeants qui nous font confiance pour leurs enjeux stratégiques.
+             « Des valeurs fortes pour des résultats concrets. »  
           </p>
         </div>
 
@@ -58,7 +59,7 @@ const TestimonialsSection = () => {
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                   <span className="text-primary font-bold text-lg">
-                    {testimonial.author.charAt(testimonial.author.length - 1)}
+                    {testimonial.author.charAt(testimonial.author.length - 0)}
                   </span>
                 </div>
                 <div>
