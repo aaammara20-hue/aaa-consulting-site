@@ -20,20 +20,22 @@ interface ContactFormData {
 }
 
 export const sendContactEmails = async (formData: ContactFormData): Promise<void> => {
-  // Initialize EmailJS
-  emailjs.init(EMAILJS_PUBLIC_KEY);
+  try {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
 
-  // Send email to each recipient simultaneously
-  const emailPromises = RECIPIENTS.map((recipientEmail) =>
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      to_email: recipientEmail,
-      from_name: formData.name,
-      from_email: formData.email,
-      company: formData.company || 'Non spécifié',
-      message: formData.message,
-    })
-  );
+    const emailPromises = RECIPIENTS.map((recipientEmail) =>
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: recipientEmail, // <-- Vérifie que {{to_email}} existe dans ton template EmailJS
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || 'Non spécifié',
+        message: formData.message,
+      })
+    );
 
-  // Wait for all emails to be sent
-  await Promise.all(emailPromises);
+    const results = await Promise.all(emailPromises);
+    console.log("Succès EmailJS :", results);
+  } catch (error) {
+    console.error("Erreur détaillée EmailJS :", error);
+  }
 };
