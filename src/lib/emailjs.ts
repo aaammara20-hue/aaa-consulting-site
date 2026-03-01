@@ -1,15 +1,15 @@
-import emailjs from '@emailjs/browser';
+// ...existing code...
+import emailjs from "@emailjs/browser";
 
-// EmailJS Configuration
-// Get these values from your EmailJS dashboard: https://dashboard.emailjs.com
-const EMAILJS_SERVICE_ID = 'service_41bcasg';
-const EMAILJS_TEMPLATE_ID = 'template_bh7feyh';
-const EMAILJS_PUBLIC_KEY = 'VDQbXX9w_AvFShisS';
+const EMAILJS_SERVICE_ID = "service_95e1rh3";
+const EMAILJS_NOTIFY_TEMPLATE_ID = "template_jcds1o4";   // notification to business owners
+const EMAILJS_AUTOREPLY_TEMPLATE_ID = "template_mxy9qta"; // auto-reply to customer
+const EMAILJS_PUBLIC_KEY = "1jpCtlKiHqnW2QIk4";
 
-// Recipients for contact form submissions
+// Business owners who receive form notifications
 const RECIPIENTS = [
-  'anouar-ali.ammara@mail.com',
-  'aaaconsulting-dz@outlook.com',
+  "anouar-ali.ammara@mail.com",
+  "aaaconsulting-dz@outlook.com",
 ];
 
 interface ContactFormData {
@@ -19,23 +19,34 @@ interface ContactFormData {
   message: string;
 }
 
-export const sendContactEmails = async (formData: ContactFormData): Promise<void> => {
-  try {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+// Initialize EmailJS once when the module is loaded
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
-    const emailPromises = RECIPIENTS.map((recipientEmail) =>
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        to_email: recipientEmail, // <-- Vérifie que {{to_email}} existe dans ton template EmailJS
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || 'Non spécifié',
-        message: formData.message,
-      })
+// ...existing code...
+export const sendContactEmails = async (formData: ContactFormData): Promise<void> => {
+  const templateBase = {
+    from_name: formData.name,
+    from_email: formData.email,
+    company: formData.company || "Non spécifié",
+    message: formData.message,
+  };
+
+  try {
+    // Notify business owners
+    const notifyPromises = RECIPIENTS.map((to_email) =>
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NOTIFY_TEMPLATE_ID, { ...templateBase, to_email })
     );
 
-    const results = await Promise.all(emailPromises);
-    console.log("Succès EmailJS :", results);
-  } catch (error) {
-    console.error("Erreur détaillée EmailJS :", error);
+    // Auto-reply to the customer
+    const autoReply = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_AUTOREPLY_TEMPLATE_ID, {
+      ...templateBase,
+      to_email: formData.email,
+    });
+
+    await Promise.all([...notifyPromises, autoReply]);
+  } catch (err) {
+    console.error("EmailJS send error:", err);
+    throw err;
   }
 };
+// ...existing code...
