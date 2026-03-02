@@ -136,26 +136,24 @@ const InterventionCard = ({ intervention, index }: { intervention: typeof interv
 
 const SectorsSection = () => {
   return (
-    <section id="offres" className="h-screen flex flex-col justify-center relative overflow-hidden">
+    <section id="offres" className="section-padding relative overflow-hidden">
       <div className="container-custom">
 
         {/* Section Header */}
-        <div className="text-left md:text-center mb-10"> 
+        <div className="text-left md:text-center mb-10">
           <h3 className="text-lg md:text-2xl font-bold text-foreground text-center mb-2">
         Des Offres structurées pour faire face à la complexité.
       </h3>
           </div>
-      </div>
-        
+
         {/* Interventions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 justify-center"> 
-        {interventions.map((intervention, index) => ( 
-        <div className="max-w-md mx-auto"> 
-        <InterventionCard key={intervention.title} intervention={intervention} index={index} /> 
-      </div> 
-    ))} 
-    </div>
-        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-5">
+          {interventions.map((intervention, index) => (
+            <InterventionCard key={intervention.title} intervention={intervention} index={index} />
+          ))}
+        </div>
+
+      </div>
     </section>
   );
 };

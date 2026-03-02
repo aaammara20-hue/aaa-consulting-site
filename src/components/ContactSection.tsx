@@ -137,7 +137,7 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="animate-fade-in-up delay-200">
-            <form onSubmit={handleSubmit} className="glass-card p-8">
+            <form onSubmit={handleSubmit} className="glass-card p-5 md:p-8">
               <div className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">

@@ -48,9 +48,9 @@ const HeroSection = () => {
           </h1>
 
           {/* When to call */}
-           <h1 className="text-2xl font-semibold text-primary text-gray-300 mb-6">
+           <p className="text-base sm:text-xl font-semibold text-primary mb-6">
             Clarifier les décisions | Aligner l’organisation | Sécuriser l’exécution
-            </h1>
+            </p>
                                    
           {/* Subheadline */}
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-in-up delay-200">

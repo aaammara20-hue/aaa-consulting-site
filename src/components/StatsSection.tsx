@@ -12,7 +12,7 @@ const StatsSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section id="expertise" className="h-screen flex flex-col justify-center relative overflow-hidden">
+    <section id="expertise" className="section-padding relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5" />
       
